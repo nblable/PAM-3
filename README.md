@@ -73,3 +73,9 @@ Aplikasi kini sepenuhnya menerapkan **State Hoisting** (menarik *state* ke atas)
 
 * **`StatelessEditField()`**
   Merupakan form input teks (`OutlinedTextField`) yang dapat digunakan kembali. Menerima parameter berupa `label`, nilai teks saat ini (`value`), dan aksi pembaruan saat teks diketik (`onValueChange`). Fungsi ini digunakan untuk input Nama dan Bio secara efisien.
+
+## Tampilan Aplikasi (Screenshot)
+<img width="422" height="935" alt="Image" src="https://github.com/user-attachments/assets/f7668de3-7f5e-4121-bf20-5072b36f0be8" />
+<img width="423" height="938" alt="Image" src="https://github.com/user-attachments/assets/958b6450-6902-4d63-aebe-e747ae837655" />
+<img width="418" height="938" alt="Image" src="https://github.com/user-attachments/assets/6af92be8-d47f-4ad3-aa72-39e07b785cdb" />
+<img width="431" height="940" alt="Image" src="https://github.com/user-attachments/assets/41e04028-7b75-4428-bcce-640f22ff53cb" />
