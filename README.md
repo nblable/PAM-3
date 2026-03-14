@@ -45,3 +45,31 @@ Project ini menggunakan beberapa Composable Function yang reusable (dapat diguna
 
 * `InfoRowItem()`
   Menampilkan setiap baris item informasi (seperti Email, Instagram, Education) yang menerima parameter berupa ikon, label, dan nilainya.
+
+---
+
+# Tugas 4 - Pengembangan Aplikasi Mobile
+## Pembaruan: Arsitektur MVVM & Fitur Interaktif Tambahan
+
+Pada Tugas 4, aplikasi dikembangkan lebih lanjut dengan memisahkan logika bisnis dari tampilan UI menggunakan arsitektur **MVVM (Model-View-ViewModel)** dan penambahan fitur dinamis yang lebih interaktif.
+
+## Fitur Baru Aplikasi
+
+* **Pengelolaan State dengan MVVM:** Data profil tidak lagi di-hardcode di UI, melainkan disimpan dalam Data Class (`ProfileUiState`) dan dikelola secara reaktif oleh `ProfileViewModel`.
+* **Fitur Edit Profil:** Pengguna dapat menekan tombol "Edit Profile" untuk memunculkan form pengisian nama dan bio. Perubahan teks akan langsung tersimpan secara *real-time* menggunakan prinsip *State Hoisting*.
+* **Dark Mode & Light Mode (Tema Gelap/Terang):** Terdapat sebuah *Switch* (ikon 🌙/☀️) di TopAppBar. Ketika ditekan, tema aplikasi beserta warnanya akan berubah dari terang ke gelap (dan sebaliknya) dengan animasi transisi warna latar yang halus.
+
+## Komponen & Teknologi Baru yang Digunakan
+
+* **ViewModel & StateFlow:** Menggunakan `ViewModel` dari *Lifecycle* dan `StateFlow` (`MutableStateFlow`, `asStateFlow`, `.update`) dari *Kotlin Coroutines* untuk manajemen data reaktif.
+* **Switch:** Komponen Compose untuk tombol *toggle* pada fitur Dark Mode.
+* **OutlinedTextField:** Komponen form input teks untuk mengetik/mengubah nama dan bio.
+* **animateColorAsState:** Komponen animasi yang digunakan untuk membuat perubahan warna background transisi terang-ke-gelap menjadi lebih *smooth* (menggunakan durasi *tween 500ms*).
+* **MaterialTheme (Color Schemes):** Pengaturan palet warna kustom untuk mode terang (`LightColorScheme`) dan mode gelap (`DarkColorScheme`).
+
+## Reusable Composable Functions (Tambahan)
+
+Aplikasi kini sepenuhnya menerapkan **State Hoisting** (menarik *state* ke atas) sehingga seluruh fungsi UI menjadi *Stateless*. Terdapat penambahan fungsi reusable baru:
+
+* **`StatelessEditField()`**
+  Merupakan form input teks (`OutlinedTextField`) yang dapat digunakan kembali. Menerima parameter berupa `label`, nilai teks saat ini (`value`), dan aksi pembaruan saat teks diketik (`onValueChange`). Fungsi ini digunakan untuk input Nama dan Bio secara efisien.
